@@ -1,0 +1,41 @@
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__input {
+    width: 200px;
+    height: 25px;
+    color: gray;
+    margin: 0 auto 10px auto;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid gray;
+    background-color: inherit;
+}
+
+.login__input:last-of-type {
+    margin: 0 auto 25px auto;
+}
+
+.login__input:focus {
+    outline: none;
+    opacity: 0.6;
+}
+
+.login__submit {
+    width: 204px;
+    height: 25px;
+    border: 1px solid gray;
+    padding: 0;
+    margin: 0 auto;
+    background-color: inherit;
+    color: gray;
+    cursor: pointer;
+}
+
+.login__submit:hover {
+    opacity: 0.6;
+}
+
