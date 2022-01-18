@@ -1,13 +1,51 @@
 import './Login.css';
+import { useState } from 'react'
 import socket from '../../utils/socket';
+import axios from 'axios'
+
 
 function Login() {
 
+  const [room, setRoom] = useState('')
+  const [userName, setUserName] = useState('')
+
+  const handleRoomInput = (event) => {
+    setRoom(event.target.value)
+  }
+
+  const handleNameInput = (event) => {
+    setUserName(event.target.value)
+  }
+
+  const handleSubmit = (event) => {
+    if(!room || !userName) {
+      event.preventDefault()
+      console.log('Error, missing data!')
+      return
+    }
+    event.preventDefault()
+    axios.post('/rooms', {
+        room,
+        userName
+    })
+    console.log(room, userName)
+  }
+
   return (
-    <form className="login">
-        <input className="login__input" name="roomId" type="text" placeholder="Room id" />
-        <input className="login__input" name="name" type="text" placeholder="Name" />
-        <button className="login__submit" type="submit">Enter</button>
+    <form className="login" onSubmit={handleSubmit}>
+      <input
+        className="login__input"
+        name="roomId" type="text" 
+        placeholder="Room id" 
+        value={room} 
+        onChange={handleRoomInput} />
+      <input 
+        className="login__input" 
+        name="name" type="text" 
+        placeholder="Name" 
+        value={userName} 
+        onChange={handleNameInput} />
+      <button className="login__submit" type="submit">Enter</button>
     </form>
   );
 }
