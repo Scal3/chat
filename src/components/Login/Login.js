@@ -4,10 +4,11 @@ import socket from '../../utils/socket';
 import axios from 'axios'
 
 
-function Login() {
+function Login({ onLogin }) {
 
   const [room, setRoom] = useState('')
   const [userName, setUserName] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleRoomInput = (event) => {
     setRoom(event.target.value)
@@ -18,17 +19,18 @@ function Login() {
   }
 
   const handleSubmit = (event) => {
+    event.preventDefault()
     if(!room || !userName) {
-      event.preventDefault()
-      console.log('Error, missing data!')
+      console.log('Error, missing data!') // !!!
       return
     }
-    event.preventDefault()
+    setIsLoading(true)
     axios.post('/rooms', {
-        room,
-        userName
+      room,
+      userName
     })
-    console.log(room, userName)
+      .then(onLogin)
+      .catch(err => console.log(err)) // !!!
   }
 
   return (
@@ -45,7 +47,10 @@ function Login() {
         placeholder="Name" 
         value={userName} 
         onChange={handleNameInput} />
-      <button className="login__submit" type="submit">Enter</button>
+      <button className="login__submit" type="submit" disabled={isLoading}>
+        {isLoading ? 'Load...' : 'Enter'}
+      </button>
+      <div>Loading...</div>
     </form>
   );
 }
