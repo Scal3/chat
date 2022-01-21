@@ -7,19 +7,19 @@ import reducer from '../../utils/reducer'
 
 function App() {
   const [state, dispatch] = useReducer(reducer, {
-    isAuth: false
+    joined: false
   })
 
   const onLogin = () => {
     dispatch({
-      type: 'IS_AUTH',
+      type: 'JOINED',
       payload: true
     })
   }
 
   return (
     <div className="app">
-      {!state.isAuth && <Login onLogin={onLogin} />}
+      {!state.joined && <Login onLogin={onLogin} />}
     </div>
   );
 }
