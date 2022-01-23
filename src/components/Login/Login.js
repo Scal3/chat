@@ -24,12 +24,13 @@ function Login({ onLogin }) {
       console.log('Error, missing data!') // !!!
       return
     }
-    setIsLoading(true)
-    axios.post('/rooms', {
+    const userData = {
       room,
       userName
-    })
-      .then(onLogin)
+    }
+    setIsLoading(true)
+    axios.post('/rooms', userData)
+      .then(onLogin(userData))
       .catch(err => console.log(err)) // !!!
   }
 

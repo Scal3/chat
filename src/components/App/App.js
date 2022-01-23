@@ -1,20 +1,29 @@
 import './App.css';
 import Login from '../Login/Login';
 import socket from '../../utils/socket';
-import { useReducer } from 'react'
+import { useReducer, useEffect } from 'react'
 import reducer from '../../utils/reducer'
 
 
 function App() {
   const [state, dispatch] = useReducer(reducer, {
-    joined: false
+    joined: false,
+    room: null,
+    userName: null
   })
 
-  const onLogin = () => {
+  useEffect(() => {
+    socket.on('ROOM:JOINED', users => {
+      console.log(users)
+    })
+  }, [])
+
+  const onLogin = (userData) => {
     dispatch({
       type: 'JOINED',
-      payload: true
+      payload: userData
     })
+    socket.emit('ROOM:JOIN', userData)
   }
 
   return (
