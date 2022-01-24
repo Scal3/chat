@@ -1,5 +1,6 @@
 import './App.css';
 import Login from '../Login/Login';
+import Chat from '../Chat/Chat';
 import socket from '../../utils/socket';
 import { useReducer, useEffect } from 'react'
 import reducer from '../../utils/reducer'
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <div className="app">
-      {!state.joined && <Login onLogin={onLogin} />}
+      {state.joined ? <Chat/> : <Login onLogin={onLogin}/>}
     </div>
   );
 }
