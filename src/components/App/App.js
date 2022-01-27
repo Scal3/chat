@@ -29,7 +29,8 @@ function App() {
 
   return (
     <div className="app">
-      {state.joined ? <Chat/> : <Login onLogin={onLogin}/>}
+      {/* {state.joined ? <Chat/> : <Login onLogin={onLogin}/>} */}
+      <Chat/>
     </div>
   );
 }

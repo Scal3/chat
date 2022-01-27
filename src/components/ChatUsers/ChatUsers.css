@@ -1,0 +1,30 @@
+.chat-users {
+    border: 1px solid #fff;
+    width: 30%;
+    display: none;
+}
+
+.chat-users__list {
+    padding: 0;
+    margin: 0;
+}
+
+.chat-users__heading {
+    color: green;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+@media screen and (min-width: 768px) {
+    .chat-users {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .chat-users__heading {
+        font-size: 20px;
+    }
+}
