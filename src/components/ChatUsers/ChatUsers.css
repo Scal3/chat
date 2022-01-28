@@ -1,19 +1,37 @@
 .chat-users {
-    border: 1px solid #fff;
+    border: 1px solid green;
     width: 30%;
     display: none;
+    overflow-y: scroll;
 }
 
 .chat-users__list {
-    padding: 0;
+    padding: 0 10px 0 10px;
     margin: 0;
+}
+
+.chat-users__list-item {
+    color: green;
+    list-style: none;
+    font-size: 15px;
+    font-weight: 300;
 }
 
 .chat-users__heading {
     color: green;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-users__sticky-heading {
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    padding: 10px;
+    border-bottom: 1px solid green;
 }
 
 
@@ -25,6 +43,10 @@
 
 @media screen and (min-width: 1024px) {
     .chat-users__heading {
-        font-size: 20px;
+        font-size: 23px;
+    }
+
+    .chat-users__list-item {
+        font-size: 18px;
     }
 }
