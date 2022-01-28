@@ -3,13 +3,13 @@ import React from 'react';
 import './Chat.css'
 
 import ChatUsers from '../ChatUsers/ChatUsers';
-import ChatForm from '../ChatForm/ChatForm';
+import ChatWindow from '../ChatWindow/ChatWindow';
 
 function Chat() {
   return (
       <div className="chat">
           <ChatUsers/>
-          <ChatForm/>
+          <ChatWindow/>
       </div>
   )
 }
