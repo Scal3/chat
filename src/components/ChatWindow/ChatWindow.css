@@ -44,11 +44,35 @@
     margin: 0 auto;
     background-color: inherit;
     cursor: pointer;
+    position: relative;
 }
 
 .chat-window__button:hover {
     opacity: 0.6;
 }
+
+.chat-window__button::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: #00CC50;
+    top: 9px;
+    left: 3px;
+    transform: rotate(25deg);
+}
+
+.chat-window__button::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: #00CC50;
+    top: 16px;
+    left: 3px;
+    transform: rotate(165deg);
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -62,6 +86,18 @@
 
     .chat-window__button {
         width: 55px;
+    }
+
+    .chat-window__button::before {
+        top: 9px;
+        left: 18px;
+        transform: rotate(25deg);
+    }
+    
+    .chat-window__button::after {
+        top: 16px;
+        left: 18px;
+        transform: rotate(165deg);
     }
 }
 
