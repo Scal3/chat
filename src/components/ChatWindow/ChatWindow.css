@@ -5,15 +5,30 @@
     border-top: 1px solid #00CC50;
 }
 
-.chat-window__border {
-    border-top: 1px solid #00CC50;
-    border-bottom: 1px solid #00CC50;
-    border-left: none;
-    border-right: none;
-}
-
 .chat-window__display {
     flex-grow: 1;
+    overflow-x: scroll;
+    padding: 10px;
+}
+
+.chat-window__message-container {
+    border-radius: 10px;
+    width: 200px;
+    display: flex;
+    padding: 5px;
+    background-color: #00CC50;
+    margin-bottom: 10px;
+}
+
+.chat-window__message-text {
+    margin: 0;
+    font-size: 16px;
+}
+
+.chat-window__message-user {
+    font-size: 10px;
+    margin: 15px 10px 0 0 ;
+    align-self: flex-end;
 }
 
 .chat-window__form {
@@ -27,6 +42,10 @@
     background-color: inherit;
     margin-right: 5px;
     color: #00CC50;
+    border-top: none;
+    border-bottom: 1px solid #00CC50;
+    border-left: none;
+    border-right: none;
 }
 
 .chat-window__input:focus {
@@ -40,20 +59,49 @@
 
 .chat-window__button {
     width: 27px;
+    border: none;
     padding: 0;
     margin: 0 auto;
     background-color: inherit;
     cursor: pointer;
+    position: relative;
 }
 
 .chat-window__button:hover {
     opacity: 0.6;
 }
 
+.chat-window__button::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: #00CC50;
+    top: 9px;
+    left: 3px;
+    transform: rotate(25deg);
+}
+
+.chat-window__button::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: #00CC50;
+    top: 16px;
+    left: 3px;
+    transform: rotate(165deg);
+}
+
+
 
 @media screen and (min-width: 768px) {
     .chat-window {
         width: 70%;
+    }
+
+    .chat-window__display {
+        padding: 10px 30px 10px 30px;
     }
 
     .chat-window__form {
@@ -63,11 +111,27 @@
     .chat-window__button {
         width: 55px;
     }
+
+    .chat-window__button::before {
+        top: 9px;
+        left: 18px;
+        transform: rotate(25deg);
+    }
+    
+    .chat-window__button::after {
+        top: 16px;
+        left: 18px;
+        transform: rotate(165deg);
+    }
 }
 
 
 @media screen and (min-width: 1024px) {
     .chat-window__form {
         padding: 20px;
+    }
+
+    .chat-window__display {
+        padding: 10px 50px 10px 50px;
     }
 }

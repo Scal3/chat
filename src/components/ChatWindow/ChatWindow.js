@@ -6,11 +6,14 @@ function ChatWindow() {
   return (
     <div className="chat-window">
       <div className="chat-window__display">
-
+        <div className="chat-window__message-container"> 
+          <span className="chat-window__message-user">Anton</span>
+          <p className="chat-window__message-text">Hello, guys!</p>
+        </div>
       </div>
       <form className="chat-window__form">
-        <input className="chat-window__input chat-window__border" type="text" placeholder="Enter your message"/>
-        <button className="chat-window__button chat-window__border" type="submit"></button>
+        <input className="chat-window__input" type="text" placeholder="Enter your message"/>
+        <button className="chat-window__button" type="submit"></button>
       </form>
     </div>
   )
