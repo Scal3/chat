@@ -97,7 +97,7 @@
 
 @media screen and (min-width: 768px) {
     .chat-window {
-        width: 60%;
+        width: 50%;
     }
 
     .chat-window__display {
