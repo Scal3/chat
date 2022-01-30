@@ -8,7 +8,9 @@ function ChatWindow() {
       <div className="chat-window__display">
         <div className="chat-window__message-container"> 
           <span className="chat-window__message-user">Anton</span>
-          <p className="chat-window__message-text">Hello, guys!</p>
+          <div className="chat-window__message-background">
+            <p className="chat-window__message-text">Hello, guys!</p>
+          </div>
         </div>
       </div>
       <form className="chat-window__form">
