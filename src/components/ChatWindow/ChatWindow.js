@@ -9,8 +9,8 @@ function ChatWindow() {
 
       </div>
       <form className="chat-window__form">
-        <input className="chat-window__input chat-window__border" type="text" placeholder="Enter your message"/>
-        <button className="chat-window__button chat-window__border" type="submit"></button>
+        <input className="chat-window__input" type="text" placeholder="Enter your message"/>
+        <button className="chat-window__button" type="submit"></button>
       </form>
     </div>
   )
