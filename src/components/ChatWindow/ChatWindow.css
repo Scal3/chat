@@ -27,6 +27,7 @@
 .chat-window__message-text {
     margin: 0;
     font-size: 16px;
+    word-break: break-all;
 }
 
 .chat-window__message-user {

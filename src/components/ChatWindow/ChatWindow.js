@@ -12,6 +12,12 @@ function ChatWindow() {
             <p className="chat-window__message-text">Hello, guys!</p>
           </div>
         </div>
+        <div className="chat-window__message-container"> 
+          <span className="chat-window__message-user">Anton</span>
+          <div className="chat-window__message-background">
+            <p className="chat-window__message-text">Hello, guys!jkdsbvdsbvjdfbvdfjvbdflvdflnvdflksvnldfnvdflknvdlfk;nvl;dfnvdfvnkdfnvdfkvn</p>
+          </div>
+        </div>
       </div>
       <form className="chat-window__form">
         <input className="chat-window__input" type="text" placeholder="Enter your message"/>
