@@ -5,11 +5,11 @@ import './Chat.css'
 import ChatUsers from '../ChatUsers/ChatUsers';
 import ChatWindow from '../ChatWindow/ChatWindow';
 
-function Chat() {
+function Chat({ users, messages }) {
   return (
       <div className="chat">
-          <ChatUsers/>
-          <ChatWindow/>
+          <ChatUsers users={users}/>
+          <ChatWindow messages={messages}/>
       </div>
   )
 }

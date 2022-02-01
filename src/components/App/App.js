@@ -10,12 +10,18 @@ function App() {
   const [state, dispatch] = useReducer(reducer, {
     joined: false,
     room: null,
-    userName: null
+    userName: null,
+    users: [],
+    messages: []
   })
 
   useEffect(() => {
     socket.on('ROOM:JOINED', users => {
       console.log(users)
+      dispatch({
+        type: 'SET_USERS',
+        payload: users
+      })
     })
   }, [])
 
@@ -29,7 +35,7 @@ function App() {
 
   return (
     <div className="app">
-      {state.joined ? <Chat/> : <Login onLogin={onLogin}/>}
+      {state.joined ? <Chat users={state.users} messages={state.messages}/> : <Login onLogin={onLogin}/>}
     </div>
   );
 }
