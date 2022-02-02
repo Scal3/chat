@@ -15,14 +15,17 @@ function App() {
     messages: []
   })
 
-  useEffect(() => {
-    socket.on('ROOM:JOINED', users => {
-      console.log(users)
-      dispatch({
-        type: 'SET_USERS',
-        payload: users
-      })
+
+  const setUsers = (users) => {
+    dispatch({
+      type: 'SET_USERS',
+      payload: users
     })
+  }
+
+  useEffect(() => {
+    socket.on('ROOM:JOINED', setUsers)
+    socket.on('ROOM:SET_USERS', setUsers)
   }, [])
 
   const onLogin = (userData) => {
