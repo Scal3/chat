@@ -18,6 +18,13 @@
     width: fit-content;
 }
 
+.chat-window__message-empty {
+    color: #00CC50;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
 .chat-window__message-background {
     background-color: #00CC50;
     border-radius: 10px;
