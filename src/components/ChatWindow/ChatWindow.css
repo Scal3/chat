@@ -12,23 +12,35 @@
 }
 
 .chat-window__message-container {
-    border-radius: 10px;
-    width: 200px;
     display: flex;
-    padding: 5px;
-    background-color: #00CC50;
+    flex-direction: column;
     margin-bottom: 10px;
+    width: fit-content;
+}
+
+.chat-window__message-empty {
+    color: #00CC50;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-window__message-background {
+    background-color: #00CC50;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .chat-window__message-text {
     margin: 0;
     font-size: 16px;
+    word-break: break-all;
 }
 
 .chat-window__message-user {
     font-size: 10px;
-    margin: 15px 10px 0 0 ;
-    align-self: flex-end;
+    color: #00CC50;
+    margin-bottom: 5px;
 }
 
 .chat-window__form {
@@ -36,7 +48,7 @@
     padding: 15px 5px 5px 5px;
 }
 
-.chat-window__input {
+.chat-window__text-area {
     width: 80%;
     height: 23px;
     background-color: inherit;
@@ -46,14 +58,19 @@
     border-bottom: 1px solid #00CC50;
     border-left: none;
     border-right: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.chat-window__input:focus {
+.chat-window__text-area:focus {
     outline: none;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
-.chat-window__input::placeholder {
+.chat-window__text-area::placeholder {
     color: #00CC50;
 }
 
@@ -97,7 +114,7 @@
 
 @media screen and (min-width: 768px) {
     .chat-window {
-        width: 70%;
+        width: 50%;
     }
 
     .chat-window__display {
@@ -132,6 +149,17 @@
     }
 
     .chat-window__display {
-        padding: 10px 50px 10px 50px;
+        padding: 10px 40px 10px 40px;
+    }
+
+    .chat-window__message-text {
+        margin: 0;
+        font-size: 18px;
+    }
+    
+    .chat-window__message-user {
+        font-size: 12px;
+        color: #00CC50;
+        margin-bottom: 5px;
     }
 }

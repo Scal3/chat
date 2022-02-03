@@ -1,6 +1,5 @@
 import './Login.css';
 import { useState } from 'react'
-import socket from '../../utils/socket';
 import axios from 'axios'
 
 
@@ -20,7 +19,7 @@ function Login({ onLogin }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if(!room || !userName) {
+    if(!room.trim() || !userName.trim()) {
       console.log('Error, missing data!') // !!!
       return
     }

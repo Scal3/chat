@@ -2,14 +2,8 @@
     display: flex;
     margin: 0 auto;
     width: 90%;
+    max-width: 1280px;
     height: 90%;
     box-sizing: border-box;
-    justify-content: space-between;
-}
-
-
-@media screen and (min-width: 1024px) {
-    .chat {
-        width: 1024px;
-    }
+    justify-content: center;
 }
