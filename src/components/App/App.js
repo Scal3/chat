@@ -9,6 +9,32 @@ import socket from '../../utils/socket';
 import reducer from '../../utils/reducer'
 
 
+
+window.onload = function() {
+  // Get a reference to the div on the page that will display the
+  // message text.
+  var messageEle = document.getElementById('message');
+
+  // A function to process messages received by the window.
+  function receiveMessage(e) {
+    // Check to make sure that this message came from the correct domain.
+    if (e.origin !== "http://127.0.0.1:5500/")
+      return;
+
+    // Update the div element to display the message.
+    messageEle.innerHTML = "Message Received: " + e.data;
+
+    console.log('ss')
+  }
+
+  // Setup an event listener that calls receiveMessage() when the window
+  // receives a new MessageEvent.
+  window.addEventListener('message', receiveMessage);
+}
+
+
+
+
 function App() {
   const [state, dispatch] = useReducer(reducer, {
     joined: false,
