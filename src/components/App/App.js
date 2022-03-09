@@ -45,7 +45,10 @@ const App = () => {
     })
     socket.emit('ROOM:JOIN', userData)
     const { data } = await axios.get(`/rooms/${userData.room}`)
-    setUsers(data.roomData.users) // try/catch
+    dispatch({
+      type: 'SET_DATA',
+      payload: data
+    }) // try/catch
   }
 
   return (
