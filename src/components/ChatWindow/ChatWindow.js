@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import './ChatWindow.css'
 
 import socket from '../../utils/socket';
 
-function ChatWindow({ messages, userName, room }) {
+function ChatWindow({ messages, userName, room, onAddMessage }) {
 
   const [chatMessage, setChatMessage] = React.useState('')
+
+  const messagesRef = useRef(null)
+
+  useEffect(() => {
+    messagesRef.current.scrollTo(0, 99999)
+  }, [messages])
 
   const handleTextarea = (event) => setChatMessage(event.target.value)
 
@@ -17,13 +23,13 @@ function ChatWindow({ messages, userName, room }) {
       userName, 
       text: chatMessage
     })
+    onAddMessage({userName, text: chatMessage})
     setChatMessage('')
   }
 
-  console.log(messages)
   return (
     <div className="chat-window">
-      <div className="chat-window__display">
+      <div className="chat-window__display" ref={messagesRef}>
         { messages.length > 0 ? (
           messages.map((message, i) => (
             <div className="chat-window__message-container" key={i}> 

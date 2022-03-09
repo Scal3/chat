@@ -9,7 +9,7 @@ import socket from '../../utils/socket';
 import reducer from '../../utils/reducer'
 
 
-function App() {
+const App = () => {
   const [state, dispatch] = useReducer(reducer, {
     joined: false,
     room: null,
@@ -26,14 +26,16 @@ function App() {
     })
   }
 
+  const addMessage = (message) => {
+    dispatch({
+      type: 'NEW_MESSAGE',
+      payload: message
+    })
+  }
+
   useEffect(() => {
     socket.on('ROOM:SET_USERS', setUsers)
-    socket.on('ROOM:NEW_MESSAGE', message => {
-      dispatch({
-        type: 'NEW_MESSAGE',
-        payload: message
-      })
-    })
+    socket.on('ROOM:NEW_MESSAGE', addMessage)
   }, [])
 
   const onLogin = async (userData) => {
@@ -43,7 +45,10 @@ function App() {
     })
     socket.emit('ROOM:JOIN', userData)
     const { data } = await axios.get(`/rooms/${userData.room}`)
-    setUsers(data.roomData.users) // try/catch
+    dispatch({
+      type: 'SET_DATA',
+      payload: data
+    }) // try/catch
   }
 
   return (
@@ -55,6 +60,7 @@ function App() {
         messages={state.messages}
         userName={state.userName}
         room={state.room}
+        onAddMessage={addMessage}
         /> 
         :
         <Login onLogin={onLogin}/> 
