@@ -4,7 +4,7 @@ import './ChatWindow.css'
 
 import socket from '../../utils/socket';
 
-function ChatWindow({ messages, userName, room }) {
+function ChatWindow({ messages, userName, room, onAddMessage }) {
 
   const [chatMessage, setChatMessage] = React.useState('')
 
@@ -17,6 +17,7 @@ function ChatWindow({ messages, userName, room }) {
       userName, 
       text: chatMessage
     })
+    onAddMessage({userName, text: chatMessage})
     setChatMessage('')
   }
 

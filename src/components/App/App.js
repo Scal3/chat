@@ -9,33 +9,7 @@ import socket from '../../utils/socket';
 import reducer from '../../utils/reducer'
 
 
-
-window.onload = function() {
-  // Get a reference to the div on the page that will display the
-  // message text.
-  var messageEle = document.getElementById('message');
-
-  // A function to process messages received by the window.
-  function receiveMessage(e) {
-    // Check to make sure that this message came from the correct domain.
-    if (e.origin !== "http://127.0.0.1:5500/")
-      return;
-
-    // Update the div element to display the message.
-    messageEle.innerHTML = "Message Received: " + e.data;
-
-    console.log('ss')
-  }
-
-  // Setup an event listener that calls receiveMessage() when the window
-  // receives a new MessageEvent.
-  window.addEventListener('message', receiveMessage);
-}
-
-
-
-
-function App() {
+const App = () => {
   const [state, dispatch] = useReducer(reducer, {
     joined: false,
     room: null,
@@ -52,14 +26,16 @@ function App() {
     })
   }
 
+  const addMessage = (message) => {
+    dispatch({
+      type: 'NEW_MESSAGE',
+      payload: message
+    })
+  }
+
   useEffect(() => {
     socket.on('ROOM:SET_USERS', setUsers)
-    socket.on('ROOM:NEW_MESSAGE', message => {
-      dispatch({
-        type: 'NEW_MESSAGE',
-        payload: message
-      })
-    })
+    socket.on('ROOM:NEW_MESSAGE', addMessage)
   }, [])
 
   const onLogin = async (userData) => {
@@ -81,6 +57,7 @@ function App() {
         messages={state.messages}
         userName={state.userName}
         room={state.room}
+        onAddMessage={addMessage}
         /> 
         :
         <Login onLogin={onLogin}/> 

@@ -5,11 +5,19 @@ import './Chat.css'
 import ChatUsers from '../ChatUsers/ChatUsers';
 import ChatWindow from '../ChatWindow/ChatWindow';
 
-function Chat({ users, messages, userName, room }) {
+function Chat({ users, messages, userName, room, onAddMessage }) {
   return (
       <div className="chat">
-          <ChatUsers users={users}/>
-          <ChatWindow messages={messages} userName={userName} room={room}/>
+          <ChatUsers 
+            users={users} 
+            room={room}
+          />
+          <ChatWindow 
+            messages={messages} 
+            userName={userName} 
+            room={room} 
+            onAddMessage={onAddMessage}
+          />
       </div>
   )
 }
