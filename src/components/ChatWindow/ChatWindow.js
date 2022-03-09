@@ -14,6 +14,8 @@ function ChatWindow({ messages, userName, room, onAddMessage }) {
     messagesRef.current.scrollTo(0, 99999)
   }, [messages])
 
+  // console.log(messages)
+
   const handleTextarea = (event) => setChatMessage(event.target.value)
 
   const handleSubmit = (event) => {
