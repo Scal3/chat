@@ -1,9 +1,14 @@
 import './Login.css';
+
 import { useState } from 'react'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+
+import { onLogin } from '../../actions/actions'
 
 
-function Login({ onLogin }) {
+const Login = () => {
+  const dispatch = useDispatch()
 
   const [room, setRoom] = useState('')
   const [userName, setUserName] = useState('')
@@ -29,7 +34,7 @@ function Login({ onLogin }) {
     }
     setIsLoading(true)
     axios.post('/rooms', userData)
-      .then(onLogin(userData))
+      .then(dispatch(onLogin(userData)))
       .catch(err => console.log(err)) // !!!
   }
 
