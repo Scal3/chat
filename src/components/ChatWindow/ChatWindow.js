@@ -1,14 +1,21 @@
-import React, { useRef, useEffect } from 'react';
-
 import './ChatWindow.css'
 
-import socket from '../../utils/socket';
+import React, { useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 
-function ChatWindow({ messages, userName, room, onAddMessage }) {
+import socket from '../../utils/socket';
+import { getMessages, getUserName, getRoom } from '../../selectors/selectors'
+import { addMessage } from '../../actions/actions'
+
+const ChatWindow = () => {
+  const dispatch = useDispatch()
+  const messages = useSelector(getMessages)
+  const userName = useSelector(getUserName)
+  const room = useSelector(getRoom)
 
   const [chatMessage, setChatMessage] = React.useState('')
-
   const messagesRef = useRef(null)
+
 
   useEffect(() => {
     messagesRef.current.scrollTo(0, 99999)
@@ -23,7 +30,7 @@ function ChatWindow({ messages, userName, room, onAddMessage }) {
       userName, 
       text: chatMessage
     })
-    onAddMessage({userName, text: chatMessage})
+    dispatch(addMessage({userName, text: chatMessage}))
     setChatMessage('')
   }
 
@@ -32,12 +39,20 @@ function ChatWindow({ messages, userName, room, onAddMessage }) {
       <div className="chat-window__display" ref={messagesRef}>
         { messages.length > 0 ? (
           messages.map((message, i) => (
-            <div className="chat-window__message-container" key={i}> 
+            message.userName === userName ? (
+              <div className="chat-window__message-container chat-window__message-container_type_current-user" key={i}> 
+              <div className="chat-window__message-background">
+                <p className="chat-window__message-text">{message.text}</p>
+              </div>
+            </div>
+            ) : (
+              <div className="chat-window__message-container" key={i}> 
               <span className="chat-window__message-user">{message.userName}</span>
               <div className="chat-window__message-background">
                 <p className="chat-window__message-text">{message.text}</p>
               </div>
             </div>
+            )
           ))
           ) : <p className="chat-window__message-empty">There are no messages in this chat...</p>
         }

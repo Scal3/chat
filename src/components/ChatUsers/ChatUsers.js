@@ -1,8 +1,14 @@
-import React from 'react';
-
 import './ChatUsers.css'
 
-function ChatUsers({ users, room }) {
+import React from 'react';
+import { useSelector } from 'react-redux'
+
+import { getUsers, getRoom } from '../../selectors/selectors'
+
+const ChatUsers = () => {
+  const users = useSelector(getUsers)
+  const room = useSelector(getRoom)
+
   return (
     <div className="chat-users">
       <h2 className="chat-users__heading">Комната: {room}</h2>
