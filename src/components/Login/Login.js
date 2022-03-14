@@ -3,6 +3,8 @@ import './Login.css';
 import { useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
+import { Button, TextField, Input } from '@mui/material';
+
 
 import { onLogin } from '../../actions/actions'
 
@@ -39,24 +41,39 @@ const Login = () => {
   }
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
-      <input
-        className="login__input"
-        name="roomId" type="text" 
-        placeholder="Room id" 
-        value={room} 
-        onChange={handleRoomInput} />
-      <input 
-        className="login__input" 
-        name="name" type="text" 
-        placeholder="Name" 
-        value={userName} 
-        onChange={handleNameInput} />
-      <button className="login__submit" type="submit" disabled={isLoading}>
-        {isLoading ? 'Load...' : 'Enter'}
-      </button>
-      <div>Loading...</div>
-    </form>
+    <div className="login">
+      <h1 className='login__heading'>CHAT</h1>
+      <div className="login__content">
+        <h2 className="login__form-heading">Hello, stranger</h2>
+        <form className="login__form">
+          <TextField
+            autoComplete='off'
+            required
+            value={room} 
+            onChange={handleRoomInput} 
+            label="Room id" 
+            variant="standard"
+          />
+          <TextField 
+            autoComplete='off'
+            required
+            margin="dense" 
+            value={userName} 
+            onChange={handleNameInput} 
+            label="Name" 
+            variant="standard"
+          />
+          <Button 
+            variant="text" 
+            size="small" 
+            disabled={isLoading} 
+            onClick={handleSubmit}
+          >
+            {isLoading ? 'Load...' : 'Enter'}
+          </Button>
+        </form>
+      </div>
+    </div>
   );
 }
 
