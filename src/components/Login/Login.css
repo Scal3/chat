@@ -1,13 +1,15 @@
 .login {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
 }
 
 .login__heading {
   top: 0;
-  left: 20px;
+  left: 5vw;
   position: absolute;
-  text-align: center;
   color: #fff;
 }
 
@@ -15,7 +17,9 @@
   border: 1px solid #fff;
   background-color: #fff;
   border-radius: 15px;
-  width: 250px;
+  width: 90vw;
+  max-width: 500px;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 20px;
 }
@@ -33,9 +37,41 @@
   text-align: center;
   color: royalblue;
   font-weight: 500;
-  font-size: 25px;
+  font-size: var(--heading-font-size);
 }
 
 .login__submit:hover {
   opacity: 0.6;
+}
+
+.login__input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+}
+
+.login__input {
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+  font-size: var(--text-font-size);
+  height: 4vh;
+}
+
+.login__input-label {
+  color: var(--main-color);
+  margin-bottom: 1vh;
+  font-size: var(--text-font-size);
+}
+
+.login__submit {
+  font-size: var(--text-font-size);
+  background-color: var(--main-color);
+  color: var(--second-color);
+  border: none;
+  height: var(--button-height);
+  cursor: pointer;
+}
+
+.login__submit:hover {
+  opacity: 0.8;
 }

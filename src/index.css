@@ -5,9 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  height: 100vh;
+  background-color: var(--main-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --text-font-size: 2vh;
+  --heading-font-size: 4vh;
+
+  --button-height: 5vh;
+
+  --main-color: royalblue;
+
+  --second-color: #fff;
 }
