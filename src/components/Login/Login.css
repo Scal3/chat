@@ -62,16 +62,3 @@
   margin-bottom: 1vh;
   font-size: var(--text-font-size);
 }
-
-.login__submit {
-  font-size: var(--text-font-size);
-  background-color: var(--main-color);
-  color: var(--second-color);
-  border: none;
-  height: var(--button-height);
-  cursor: pointer;
-}
-
-.login__submit:hover {
-  opacity: 0.8;
-}
