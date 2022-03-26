@@ -2,16 +2,17 @@ import './Login.css';
 
 import { useState } from 'react'
 import axios from 'axios'
-
 import { useDispatch } from 'react-redux'
-import { onLogin } from '../../actions/actions'
+import { useHistory } from 'react-router-dom'
 
+import { onLogin } from '../../actions/actions'
 
 import Button from '../UI/Button/Button';
 
 
 const Login = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const [room, setRoom] = useState('')
   const [userName, setUserName] = useState('')
@@ -37,7 +38,10 @@ const Login = () => {
     }
     setIsLoading(true)
     axios.post('/rooms', userData)
-      .then(dispatch(onLogin(userData)))
+      .then(res => {
+        dispatch(onLogin(userData))
+        history.push('/')
+      })
       .catch(err => console.log(err)) // !!!
   }
 

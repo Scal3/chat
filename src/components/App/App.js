@@ -1,19 +1,18 @@
 import './App.css';
 
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { Switch } from 'react-router-dom'
 
 import Login from '../Login/Login';
 import Chat from '../Chat/Chat';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import socket from '../../utils/socket';
 import { setUsers, addMessage } from '../../actions/actions'
-import { getJoined } from '../../selectors/selectors'
 
 
 const App = () => {
   const dispatch = useDispatch()
-
-  const joined = useSelector(getJoined)
 
   useEffect(() => {
     socket.on('ROOM:SET_USERS', (users) =>{
@@ -26,12 +25,20 @@ const App = () => {
 
   return (
     <div className="app">
-      { joined
-        ? 
-        <Chat/> 
-        :
-        <Login/> 
-      }
+      <Switch>
+          <ProtectedRoute
+            component={Login} 
+            isItAnAuthorizationComponent={true} 
+            path="/login" 
+            redirectPath="/" 
+          />
+          <ProtectedRoute
+            component={Chat} 
+            isItAnAuthorizationComponent={false} 
+            path="/" 
+            redirectPath="/login" 
+          />
+      </Switch>
     </div>
   );
 }
