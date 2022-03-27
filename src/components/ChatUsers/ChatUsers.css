@@ -1,8 +1,12 @@
 .chat-users {
-  background-color: #fff;
+  background-color: var(--main-color);
   width: 30%;
   display: none;
   overflow-y: scroll;
+  border-top: 4px solid var(--second-color);
+  border-left: 4px solid var(--second-color);
+  border-bottom: 4px solid var(--second-color);
+  box-sizing: border-box;
 }
 
 .chat-users__list {
@@ -11,14 +15,15 @@
 }
 
 .chat-users__list-item {
-  color: #00cc50;
+  color: var(--second-color);
   list-style: none;
   font-size: 15px;
   font-weight: 300;
 }
 
 .chat-users__heading {
-  color: #00cc50;
+  color: var(--second-color);
+  font-size: var(--heading-font-size);
   text-align: center;
   font-size: 18px;
   font-weight: 500;

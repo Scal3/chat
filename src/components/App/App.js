@@ -23,32 +23,20 @@ const App = () => {
     })
   }, [])
 
-  // return (
-  //   <div className="app">
-  //     <Switch>
-  //         <ProtectedRoute
-  //           component={Login} 
-  //           isItAnAuthorizationComponent={true} 
-  //           path="/login" 
-  //           redirectPath="/" 
-  //         />
-  //         <ProtectedRoute
-  //           component={Chat} 
-  //           isItAnAuthorizationComponent={false} 
-  //           path="/" 
-  //           redirectPath="/login" 
-  //         />
-  //     </Switch>
-  //   </div>
-  // );
   return (
     <div className="app">
       <Switch>
           <ProtectedRoute
-            component={Chat} 
+            component={Login} 
             isItAnAuthorizationComponent={true} 
             path="/login" 
             redirectPath="/" 
+          />
+          <ProtectedRoute
+            component={Chat} 
+            isItAnAuthorizationComponent={false} 
+            path="/" 
+            redirectPath="/login" 
           />
       </Switch>
     </div>
