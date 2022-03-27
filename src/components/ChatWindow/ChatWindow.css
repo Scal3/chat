@@ -36,7 +36,7 @@
 }
 
 .chat-window__message-background {
-  background-color: var(--main-color);
+  background-color: var(--second-color);
   border-radius: 10px;
   padding: 5px;
 }
@@ -44,12 +44,13 @@
 .chat-window__message-text {
   margin: 0;
   font-size: var(--text-font-size);
+  color: var(--main-color);
   word-break: break-all;
 }
 
 .chat-window__message-user {
   font-size: 10px;
-  color: var(--main-color);
+  color: var(--second-color);
   margin-bottom: 5px;
 }
 
@@ -164,7 +165,6 @@
 
   .chat-window__message-user {
     font-size: 12px;
-    color: var(--main-color);
     margin-bottom: 5px;
   }
 }
