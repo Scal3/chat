@@ -1,8 +1,10 @@
 .chat-window {
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #00cc50;
+  background-color: var(--main-color);
+  border: 4px solid var(--second-color);
+  box-sizing: border-box;
 }
 
 .chat-window__display {
@@ -11,6 +13,7 @@
   flex-grow: 1;
   overflow-x: scroll;
   padding: 10px;
+  height: 85vh;
 }
 
 .chat-window__message-container {
@@ -25,50 +28,49 @@
 }
 
 .chat-window__message-empty {
-  color: #00cc50;
+  color: var(--second-color);
+  font-size: var(--text-font-size);
   text-align: center;
   margin: 0;
   padding: 0;
 }
 
 .chat-window__message-background {
-  background-color: #00cc50;
+  background-color: var(--main-color);
   border-radius: 10px;
   padding: 5px;
 }
 
 .chat-window__message-text {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--text-font-size);
   word-break: break-all;
 }
 
 .chat-window__message-user {
   font-size: 10px;
-  color: #00cc50;
+  color: var(--main-color);
   margin-bottom: 5px;
 }
 
 .chat-window__form {
   display: flex;
-  padding: 15px 5px 5px 5px;
+  padding: 2vh 1vh 5vh 1vh;
+  background-color: var(--main-color);
+  border-top: 4px solid var(--second-color);
 }
 
 .chat-window__text-area {
+  border-radius: 10px;
+  height: 100%;
   width: 80%;
-  height: 23px;
   background-color: inherit;
   margin-right: 5px;
-  color: #00cc50;
-  border-top: none;
-  border-bottom: 1px solid #00cc50;
-  border-left: none;
-  border-right: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--second-color);
+  border: 1px solid var(--second-color);
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: var(--text-font-size);
 }
 
 .chat-window__text-area:focus {
@@ -77,7 +79,7 @@
 }
 
 .chat-window__text-area::placeholder {
-  color: #00cc50;
+  color: var(--second-color);
 }
 
 .chat-window__button {
@@ -99,7 +101,7 @@
   position: absolute;
   width: 20px;
   height: 1px;
-  background-color: #00cc50;
+  background-color: var(--second-color);
   top: 9px;
   left: 3px;
   transform: rotate(25deg);
@@ -110,7 +112,7 @@
   position: absolute;
   width: 20px;
   height: 1px;
-  background-color: #00cc50;
+  background-color: var(--second-color);
   top: 16px;
   left: 3px;
   transform: rotate(165deg);
@@ -162,7 +164,7 @@
 
   .chat-window__message-user {
     font-size: 12px;
-    color: #00cc50;
+    color: var(--main-color);
     margin-bottom: 5px;
   }
 }

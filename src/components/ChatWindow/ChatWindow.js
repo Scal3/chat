@@ -58,7 +58,7 @@ const ChatWindow = () => {
         }
       </div>
       <form className="chat-window__form" onSubmit={handleSubmit}>
-        <textarea className="chat-window__text-area" type="text" placeholder="Enter your message" rows="1" value={chatMessage} onChange={handleTextarea}/>
+        <textarea className="chat-window__text-area" type="text" placeholder="Write your message" rows="1" value={chatMessage} onChange={handleTextarea}/>
         <button className="chat-window__button" type="submit"></button>
       </form>
     </div>
