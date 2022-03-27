@@ -1,9 +1,9 @@
 .chat {
-    display: flex;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1280px;
-    height: 90%;
-    box-sizing: border-box;
-    justify-content: center;
+  display: flex;
+  margin: auto;
+  max-width: 1280px;
+  box-sizing: border-box;
+  justify-content: center;
+  height: 100vh;
+  padding: 1vh;
 }

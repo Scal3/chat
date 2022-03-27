@@ -1,7 +1,4 @@
 .app {
-  height: 100vh;
-  background-color: royalblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 1280px;
+  margin: 0 auto;
 }

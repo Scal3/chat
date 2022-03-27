@@ -3,14 +3,16 @@ import './Login.css';
 import { useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { Button, TextField, Input } from '@mui/material';
-
+import { useHistory } from 'react-router-dom'
 
 import { onLogin } from '../../actions/actions'
+
+import Button from '../UI/Button/Button';
 
 
 const Login = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const [room, setRoom] = useState('')
   const [userName, setUserName] = useState('')
@@ -36,7 +38,10 @@ const Login = () => {
     }
     setIsLoading(true)
     axios.post('/rooms', userData)
-      .then(dispatch(onLogin(userData)))
+      .then(res => {
+        dispatch(onLogin(userData))
+        history.push('/')
+      })
       .catch(err => console.log(err)) // !!!
   }
 
@@ -45,30 +50,30 @@ const Login = () => {
       <h1 className='login__heading'>CHAT</h1>
       <div className="login__content">
         <h2 className="login__form-heading">Hello, stranger</h2>
-        <form className="login__form">
-          <TextField
-            autoComplete='off'
-            required
-            value={room} 
-            onChange={handleRoomInput} 
-            label="Room id" 
-            variant="standard"
-          />
-          <TextField 
-            autoComplete='off'
-            required
-            margin="dense" 
-            value={userName} 
-            onChange={handleNameInput} 
-            label="Name" 
-            variant="standard"
-          />
-          <Button 
-            variant="text" 
-            size="small" 
-            disabled={isLoading} 
-            onClick={handleSubmit}
-          >
+        <form className="login__form" onSubmit={handleSubmit}>
+          <div className='login__input-container'>
+            <label htmlFor="room" className='login__input-label'>room</label>
+            <input
+              className='login__input'
+              autoComplete='off'
+              required
+              value={room} 
+              onChange={handleRoomInput} 
+              id="room"
+            />
+          </div>
+          <div className='login__input-container'>
+            <label htmlFor="userName" className='login__input-label'>user name</label>
+            <input 
+              className='login__input'
+              autoComplete='off'
+              required
+              value={userName} 
+              onChange={handleNameInput} 
+              id="userName"
+            />
+          </div>
+          <Button>
             {isLoading ? 'Load...' : 'Enter'}
           </Button>
         </form>

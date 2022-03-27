@@ -7,10 +7,10 @@ import ChatWindow from '../ChatWindow/ChatWindow';
 
 const Chat = () => {
   return (
-      <div className="chat">
-          <ChatUsers/>
-          <ChatWindow/>
-      </div>
+    <div className="chat">
+        <ChatUsers/>
+        <ChatWindow/>
+    </div>
   )
 }
 

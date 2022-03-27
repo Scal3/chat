@@ -1,0 +1,26 @@
+.Button {
+  font-size: var(--text-font-size);
+  background-color: var(--second-color);
+  color: var(--main-color);
+  border: none;
+  height: var(--button-height);
+  cursor: pointer;
+}
+
+.Button:hover {
+  opacity: 0.8;
+}
+
+/* .Button {
+  font-size: var(--text-font-size);
+  background-color: inherit;
+  color: var(--second-color);
+  border: none;
+  height: var(--button-height);
+  cursor: pointer;
+  border: 1px solid var(--second-color);
+}
+
+.Button:hover {
+  opacity: 0.6;
+} */
