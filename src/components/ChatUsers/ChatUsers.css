@@ -1,11 +1,20 @@
 .chat-users {
-  background-color: var(--main-color);
+  background-color: var(--gray-color);
   width: 30%;
   display: none;
   overflow-y: scroll;
-  border-top: 2px solid var(--second-color);
-  border-left: 2px solid var(--second-color);
-  border-bottom: 2px solid var(--second-color);
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.chat-users__menu {
+  height: 5vh;
+  background-color: var(--second-color);
+  display: flex;
+  align-items: center;
+  padding: 1vh;
   box-sizing: border-box;
 }
 
@@ -22,13 +31,11 @@
 }
 
 .chat-users__heading {
-  color: var(--second-color);
-  font-size: var(--heading-font-size);
-  text-align: center;
-  font-size: 18px;
+  color: var(--main-color);
+  font-size: var(--text-font-size);
+  text-align: left;
   font-weight: 500;
   margin: 0;
-  padding: 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -38,10 +45,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .chat-users__heading {
-    font-size: 23px;
-  }
-
   .chat-users__list-item {
     font-size: 18px;
   }

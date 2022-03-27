@@ -49,6 +49,9 @@ const ChatWindow = () => {
 
   return (
     <div className="chat-window">
+      <div className='chat-window__menu chat-users__menu'>
+        <h2 className='chat-window__user-name'>Hello, {userName}</h2>
+      </div>
       <div className="chat-window__display" ref={messagesRef}>
         { messages.length > 0 ? (
           messages.map((message, i) => (
