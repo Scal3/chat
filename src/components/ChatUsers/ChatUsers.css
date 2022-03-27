@@ -3,9 +3,9 @@
   width: 30%;
   display: none;
   overflow-y: scroll;
-  border-top: 4px solid var(--second-color);
-  border-left: 4px solid var(--second-color);
-  border-bottom: 4px solid var(--second-color);
+  border-top: 2px solid var(--second-color);
+  border-left: 2px solid var(--second-color);
+  border-bottom: 2px solid var(--second-color);
   box-sizing: border-box;
 }
 

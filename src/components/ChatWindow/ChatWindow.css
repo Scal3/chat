@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: column;
   background-color: var(--main-color);
-  border: 4px solid var(--second-color);
   box-sizing: border-box;
+  border: 2px solid var(--second-color);
 }
 
 .chat-window__display {
@@ -48,6 +48,14 @@
   word-break: break-all;
 }
 
+.chat-window__message-date {
+  margin: 0;
+  margin-top: 5px;
+  font-size: var(--date-font-size);
+  color: var(--main-color);
+  word-break: break-all;
+}
+
 .chat-window__message-user {
   font-size: 10px;
   color: var(--second-color);
@@ -58,7 +66,7 @@
   display: flex;
   padding: 2vh 1vh 5vh 1vh;
   background-color: var(--main-color);
-  border-top: 4px solid var(--second-color);
+  border-top: 2px solid var(--second-color);
 }
 
 .chat-window__text-area {
@@ -150,10 +158,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .chat-window__form {
-    padding: 20px;
-  }
-
   .chat-window__display {
     padding: 10px 40px 10px 40px;
   }

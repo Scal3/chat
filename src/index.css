@@ -18,9 +18,12 @@ code {
 :root {
   --text-font-size: 2vh;
   --heading-font-size: 4vh;
+  --date-font-size: 1vh;
 
   --button-height: 5vh;
 
-  --main-color: royalblue;
-  --second-color: #fff;
+  --main-color: #fff;
+  --second-color: royalblue;
+  --gray-color: #f4f4f3;
+  --black-color: #000;
 }
